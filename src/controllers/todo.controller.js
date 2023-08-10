@@ -2,20 +2,20 @@ const Todo = require("../model/todo.schema.js");
 
 exports.createTodo = async (req, res) => {
     try {
-        const {title, description} = req.body;
+        const { title, description } = req.body;
 
         if (!title || !description) {
             throw new Error("Fields are incomplete")
         }
         
-        const todo = await Todo.create({
+        const todos = await Todo.create({
             title,
             description
         })
 
         res.status(200).json({
             success: true,
-            todo
+            todos
         })
         
     } catch (error) {

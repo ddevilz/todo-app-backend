@@ -1,5 +1,5 @@
 const express = require('express')
-const todo = require('./routes/todo.routes.js')
+const router = require('./routes/todo.routes.js')
 
 const app = express()
 
@@ -12,7 +12,7 @@ app.get("/", (_req, res) => {
     )
 })
 
-app.use("/api", todo)
+app.use("/api", router)
 
 app.all("*", (_req, res) => {
     return res.status(400).json({
